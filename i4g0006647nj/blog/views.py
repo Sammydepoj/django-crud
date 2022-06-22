@@ -9,15 +9,12 @@ from django.urls import reverse_lazy
 from .models import Post
 
 class PostListView (ListView):
-    models=Post
+    model=Post
     template_name = 'post_list.html'
     success_url  = reverse_lazy("blog:all")
-
-
 class PostCreateView (CreateView):
     model = Post
     fields = "__all__"
-
     template_name = 'post_form.html'
     success_url  = reverse_lazy("blog:all")
 
@@ -25,13 +22,11 @@ class PostDetailView(DetailView):
     model=Post
     template_name = 'post_detail.html'
 
-
 class PostUpdateView(UpdateView):
     model=Post
     fields = "__all__"
-    template_name = 'post_detail.html'
+    template_name = 'post_form.html'
     success_url  = reverse_lazy("blog:all")  
-
 
 class PostDeleteView(DeleteView):
      model=Post
